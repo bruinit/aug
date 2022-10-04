@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+  <link rel="stylesheet" href="player.css">
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<audio  id="audio_player">
+  <source src="track.ogg" type="audio/ogg" />
+  <source src="../audio/song1.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<div id="audioplayer" style="border: 1px solid black">
+  <button id="pButton" class="play" onclick="playAudio()"></button>
+    <div id="timeline">
+    <div id="playhead"></div>
+  </div>
+  <div id="volume_control">
+    <label id="rngVolume_label" for="rngVolume">Volume:</label>
+    <input type="range" onchange="setVolume(this.value)" id="rngVolume" min="0" max="1" step="0.01" value="1">
+  </div>
+</div>
+<script>
+// variable to store HTML5 audio element
+var music = document.getElementById('audio_player');
+ 
+function playAudio() {
+  if (music.paused) {
+    music.play();
+    pButton.className = "";
+    pButton.className = "pause";
+  } else {
+    music.pause();
+    pButton.className = "";
+    pButton.className = "play";
+  }
+}
+</script>
+</body>
+</html>
+
